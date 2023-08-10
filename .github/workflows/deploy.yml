@@ -26,6 +26,6 @@ jobs:
           --exclude /deploy_key \
           --exclude /.git/ \
           --exclude /.github/ \
-          --exclude /README.md/ \
+          --exclude /README.md \
           --exclude /node_modules/ \
           ./ ${{env.dest}}
