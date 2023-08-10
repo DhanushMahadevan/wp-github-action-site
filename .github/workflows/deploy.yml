@@ -1,0 +1,44 @@
+name: WordPress Deployment Workflow
+
+on:
+  push:
+    branches:
+      - main  # Change this to the appropriate branch name
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Change this to the appropriate Node.js version
+      
+      - name: Install PHP and dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install php php-mbstring php-xml php-zip
+          
+      - name: Install Composer
+        run: |
+          curl -sS https://getcomposer.org/installer -o composer-setup.php
+          sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+          rm composer-setup.php
+      
+      - name: Install npm dependencies and build
+        run: |
+          npm install
+          npm run build  # Change this to your build command
+      
+      - name: Transfer files to server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}  # Add the server hostname or IP address as a secret
+          username: ${{ secrets.SERVER_USERNAME }}  # Add the server username as a secret
+          key: ${{ secrets.SERVER_SSH_KEY }}  # Add the SSH private key as a secret
+          source: "."  # Source directory to transfer
+          target: "/var/www/html/wordpress/wp-content/themes/zeever"  # Target directory on the server
