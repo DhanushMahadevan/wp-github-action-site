@@ -15,11 +15,6 @@ jobs:
       with:
         node-version: 12.x
 
-    - name: Install dependencies
-      run: |
-        composer install -o
-        npm install
-
     - name: Build
       run: npm run build
     
