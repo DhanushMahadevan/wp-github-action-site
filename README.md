@@ -257,15 +257,13 @@ Remote Server: Ensure you have access to a remote server where you want to deplo
 * SERVER_USERNAME: The username to connect to the remote server.
 * SERVER_HOST: The hostname or IP address of the remote server.
 * SERVER_SSH_KEY: The private SSH key to use for authentication. Generate an SSH key pair and add the private key as a secret.
-GitHub Actions Workflow: Create a .github/workflows directory in your repository if it doesn't exist. Inside this directory, create a .yml file (e.g., deploy.yml) and copy the provided workflow code into this file.
+
+* GitHub Actions Workflow: Create a .github/workflows directory in your repository if it doesn't exist. Inside this directory, create a .yml file (e.g., deploy.yml) and copy the provided workflow code into this file.
 
 
 # Conclusion
 * This GitHub Actions workflow simplifies the deployment of your WordPress theme by automating the synchronization process using Rsync. By configuring a few secrets and adjusting the deployment destination, you can ensure that your latest changes are efficiently pushed to your remote server upon every push to the master branch.
-
-* If you encounter any issues, have suggestions for improvements, or need further assistance, don't hesitate to reach out by opening an issue in this repository. Your feedback is highly valued and can contribute to the ongoing refinement of this workflow.
-
-Thank you for using this deployment workflow! 
+ 
 ### Happy coding and deploying!
 
 
