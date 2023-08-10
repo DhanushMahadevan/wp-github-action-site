@@ -10,30 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'  # Change this to the appropriate Node.js version
-      
-      - name: Install PHP and dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install php php-mbstring php-xml php-zip
-          
-      - name: Install Composer
-        run: |
-          curl -sS https://getcomposer.org/installer -o composer-setup.php
-          sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
-          rm composer-setup.php
-      
-      - name: Install npm dependencies and build
-        run: |
-          npm install
-          npm run build  # Change this to your build command
-      
       - name: Transfer files to server
         uses: appleboy/scp-action@master
         with:
