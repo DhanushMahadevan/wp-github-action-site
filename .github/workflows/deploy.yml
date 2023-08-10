@@ -18,7 +18,7 @@ jobs:
     
     - name: Sync
       env:
-        dest: 'root@34.220.189.164:/var/www/html/wordpress/wp-content/themes/zeever'
+        dest: 'ubuntu@34.220.189.164:/var/www/html/wordpress/wp-content/themes/zeever'
       run: |
         echo "${{secrets.SERVER_SSH_KEY}}" > deploy_key
         chmod 600 ./deploy_key
