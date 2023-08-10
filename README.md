@@ -3,7 +3,7 @@
  ## Description
  I'd happily guide you through the general steps to provision a Virtual Private Server (VPS) on a primary cloud provider like AWS, Azure, Google Cloud, or DigitalOcean to host a WordPress website. Please note that specific steps might vary depending on the cloud provider you choose.
 
-## Pre-Requisite
+## Pre-Requisites
  * Once you have any of the above infrastructure you can start the installation. For this, you need four different software components:
   * NGINX: The actual web server.
   * MySQL: A database that stores the content of your WordPress site, among other things.
@@ -99,7 +99,7 @@ sudo apt install php-fpm -y
 ```
 During the installation process, you will also see which version is installed on your system. With this information, you can then verify that PHP is working correctly. In our case, version 8.2 was installed. If you already have a newer version, you must adjust the command accordingly:
 ```
-sudo systemctl status php8.2-fpm
+sudo systemctl status php8.1-fpm
 ```
 In order for PHP to work with the MySQL database, install the following extension:
 ```
@@ -204,7 +204,7 @@ sudo systemctl restart nginx
 ## Step 8: Log into the WordPress dashboard
 Now you have everything installed and you can start designing your WordPress website. To do this, launch a browser and access your domain. In this tutorial, we have set WordPress as a subdomain under “wordpress.example.com”. So you would need to visit the appropriate subdomain, which is where you will be greeted with the first page of the setup wizard.
 
-## Step 8: To implement SSL/TLS certificates
+## Step 9: To implement SSL/TLS certificates
 ### 1. Prerequisites:
 Make sure your server is accessible via a domain name (e.g., yourdomain.com) and that you have SSH access to your server.
 
@@ -215,7 +215,7 @@ Certbot is the official Let's Encrypt client that helps you obtain and manage SS
 sudo apt update
 sudo apt install certbot python3-certbot-nginx
 ```
-### 3. 3. Obtain SSL Certificate:
+### 3. Obtain SSL Certificate:
 Run Certbot to obtain and install an SSL certificate for your domain:
 ```
 sudo certbot --nginx -d example.com -d www.example.com
@@ -226,6 +226,47 @@ After Certbot successfully obtains the SSL certificate, you should test your Ngi
 sudo nginx -t
 sudo systemctl reload nginx
 ```
+## Step 10: Github Workflow
+
+# Deployment GitHub Action
+
+This GitHub Actions workflow automates the deployment process for a web application, specifically targeted at deploying a WordPress theme to a remote server. The workflow is triggered whenever changes are pushed to the master branch.
+
+# Workflow Overview
+
+The workflow consists of the following steps:
+
+1. Checkout Repository: This step checks out the code from the repository, allowing subsequent steps to work with the codebase.
+
+2. Setup Node.js: The workflow sets up Node.js version 12.x on the runner machine, which is required for executing the deployment script.
+
+3. Sync to Remote Server: The main step of the workflow, this section performs the synchronization of the local code to a remote server. It uses the rsync command to ensure that the remote server's files match those in the local repository. This step uses SSH key-based authentication for secure communication with the remote server.
+   The synchronization process excludes certain files and directories:
+
+* /deploy_key: The SSH key used for authentication is excluded from the synchronization.
+* /.git/: The local Git repository directory is excluded to avoid copying unnecessary version control files.
+* /.github/: The GitHub Actions workflow files are excluded from the synchronization.
+* /node_modules/: Node.js modules are excluded, assuming that dependencies are managed on the server.
+* /README.md/: README.md file is excluded to avoid copying to the remote server.
+
+  # Configuration
+To set up this GitHub Actions workflow for your project, follow these steps:
+
+Remote Server: Ensure you have access to a remote server where you want to deploy your code. Update the following secrets in your GitHub repository settings:
+
+* SERVER_USERNAME: The username to connect to the remote server.
+* SERVER_HOST: The hostname or IP address of the remote server.
+* SERVER_SSH_KEY: The private SSH key to use for authentication. Generate an SSH key pair and add the private key as a secret.
+GitHub Actions Workflow: Create a .github/workflows directory in your repository if it doesn't exist. Inside this directory, create a .yml file (e.g., deploy.yml) and copy the provided workflow code into this file.
+
+
+# Conclusion
+* This GitHub Actions workflow simplifies the deployment of your WordPress theme by automating the synchronization process using Rsync. By configuring a few secrets and adjusting the deployment destination, you can ensure that your latest changes are efficiently pushed to your remote server upon every push to the master branch.
+
+* If you encounter any issues, have suggestions for improvements, or need further assistance, don't hesitate to reach out by opening an issue in this repository. Your feedback is highly valued and can contribute to the ongoing refinement of this workflow.
+
+Thank you for using this deployment workflow! 
+### Happy coding and deploying!
 
 
 
