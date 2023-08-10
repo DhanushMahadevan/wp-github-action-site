@@ -10,7 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-       - name: Deploy files using rsync
-         run: |
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.1
+        with:
+            ssh-private-key: ${{ secrets.SERVER_SSH_KEY }}
+      
+      - name: Deploy files using rsync
+        run: |
           rsync -e "ssh -o StrictHostKeyChecking=no" -ravz --delete \
             /path/to/files/ ubuntu@${{ secrets.SERVER_HOST }}:/var/www/html/wordpress/wp-content/themes/zeever/
