@@ -15,8 +15,6 @@ jobs:
       with:
         node-version: 12.x
 
-    - name: Build
-      run: npm run build
     
     - name: Sync
       env:
