@@ -20,9 +20,9 @@ jobs:
       env:
         dest: 'ubuntu@34.220.189.164:/var/www/html/wordpress/wp-content/themes/zeever'
       run: |
-        echo "${{secrets.SERVER_SSH_KEY}}" > deploy_key
-        chmod 600 ./deploy_key
-        rsync -chav --delete \
+        sudo echo "${{secrets.SERVER_SSH_KEY}}" > deploy_key
+        sudo chmod 600 ./deploy_key
+        sudo rsync -chav --delete \
           -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
           --exclude /deploy_key \
           --exclude /.git/ \
