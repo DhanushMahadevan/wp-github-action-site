@@ -11,7 +11,7 @@
   * WordPress: The content management system helps you define the look of your website and manage the content.
 All the software components you need for your WordPress installation are available for free. I explain how to install and properly configure each component.
 
-## Update Ubuntu System:
+## Update the System:
 ```
 sudo apt update -y
 sudo apt upgrade -y
@@ -24,9 +24,46 @@ sudo apt install nginx -y
 ```
 sudo systemctl status nginx
 ```
-Exit the status display by pressing “Q” (like Quit) on your keyboard.
+ ### 1. Enable Gzip Compression:
+   Gzip compression reduces the size of files sent from your server, improving load times for your website:
+Edit your Nginx configuration file (usually located at /etc/nginx/nginx.conf or /etc/nginx/sites-available/yourdomain.com) and add or update these lines within the http block:
+```
+gzip on;
+gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+gzip_vary on;
+gzip_proxied any;
+gzip_comp_level 6; # Adjust compression level based on your server's resources
+gzip_min_length 1000;
+```
+### 2. Implement Browser Caching:
+   By configuring browser caching, you can instruct browsers to store certain assets locally, reducing the need to fetch them repeatedly:
+   ```
+   location ~* \.(jpg|jpeg|png|gif|ico|css|js)$ {
+    expires 1y;
+    add_header Cache-Control "public, max-age=31536000";
+    add_header Vary Accept-Encoding;
+    access_log off;
+}
 
-## Step 2: Install MySQL
+   ```
+Exit the status display by pressing “Q” (like Quit) on your keyboard.
+## step2: Install ufw for Allowing and Denying traffic
+```
+sudo apt install ufw -y
+```
+Allow HTTP,HTTPS,NGINX HTTPS traffic
+```
+sudo ufw allow OpenSSH
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+sudo ufw allow NGINX HTTPS
+```
+```
+sudo ufw status
+sudo ufw enable
+sudo ufw reload
+```
+## Step 3: Install MySQL
 
 Next, you need to install a database. WordPress works with both MySQL and MariaDB. We decided to use the classic MySQL even though they both fared equally as well in the MariaB vs. MySQL comparison.
 ```
@@ -44,7 +81,7 @@ Now you are in the MySQL area, which is where you can create a new database for 
 ```
 CREATE DATABASE WordPress CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 ```
-And here is where you also create a new user including password for this database and assign the required rights. You’re free to choose the username and password:
+And here is where you also create a new user including the password for this database and assign the required rights. You’re free to choose the username and password:
 
 ```
 CREATE USER 'user'@'localhost' IDENTIFIED BY 'password'
@@ -54,7 +91,7 @@ Now leave MySQL again:
 ```
 EXIT;
 ```
-## Step 3: Install PHP
+## Step 4: Install PHP
 
 The last step before you install WordPress is to install the PHP scripting language. For this, you need only one command, which then automatically installs the latest PHP version:
 ```
@@ -72,7 +109,7 @@ In order for PHP to work with the MySQL database, install the following extensio
 ```
 sudo apt-get install php-mysql -y
 ```
-## Step 4: Install WordPress
+## Step 5: Install WordPress
 
 Now you can install WordPress. This can also be done directly via the Ubuntu terminal. First, however, create a folder so that you can install the content management system afterward. It is recommended to name the folder with the domain name. This way it makes it easier to keep several websites apart later on. So create the appropriate folder and then change it to this one:
 ```
@@ -88,7 +125,7 @@ Since the web server needs to make changes to the folder, you must give NGINX th
 ```
 sudo chown -R nginx: /var/www/html/example.com/
 ```
-## Step 5: Customize the WordPress configuration file
+## Step 6: Customize the WordPress configuration file
 
 You need to configure WordPress so that the CMS can work with your LEMP server. To do this, go to the WordPress directory and create the sample configuration file wp-config.php. Then open the file:
 ```
@@ -112,7 +149,7 @@ define( 'DB_HOST', 'localhost' );
 ```
 We set the required information for this in step 2. In our case the database is called “WordPress”, the username is simply “user” and the password we have simply set as “password”. When you have entered your data, you can save the document and close it again.
 
-## Step 6: Set NGINX 
+## Step 7: Set NGINX 
 Now you need to configure NGINX for WordPress. To do this, create a new configuration file in the NGINX file folder:
 
 ```
@@ -164,10 +201,31 @@ You should get an indication that the syntax is ok and the text was successful. 
 ```
 sudo systemctl restart nginx
 ```
-## Step 7: Log into the WordPress dashboard
+## Step 8: Log into the WordPress dashboard
 Now you have everything installed and you can start designing your WordPress website. To do this, launch a browser and access your domain. In this tutorial, we have set WordPress as a subdomain under “wordpress.example.com”. So you would need to visit the appropriate subdomain, which is where you will be greeted with the first page of the setup wizard.
 
+## Step 8: To implement SSL/TLS certificates
+### 1. Prerequisites:
+Make sure your server is accessible via a domain name (e.g., yourdomain.com) and that you have SSH access to your server.
 
+### 2. Install Certbot:
+Certbot is the official Let's Encrypt client that helps you obtain and manage SSL certificates. Install Certbot on your server:
+
+```
+sudo apt update
+sudo apt install certbot python3-certbot-nginx
+```
+### 3. 3. Obtain SSL Certificate:
+Run Certbot to obtain and install an SSL certificate for your domain:
+```
+sudo certbot --nginx -d example.com -d www.example.com
+
+```
+After Certbot successfully obtains the SSL certificate, you should test your Nginx configuration:
+```
+sudo nginx -t
+sudo systemctl reload nginx
+```
 
 
 
