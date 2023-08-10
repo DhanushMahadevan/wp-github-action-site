@@ -3,11 +3,11 @@
  * Upgrader Class
  *
  * @author Jegstudio
- * @package zeever
+ * @package intrace
  * @since 1.0.0
  */
 
-namespace Zeever;
+namespace Intrace;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Block Pattern Class
  *
- * @package zeever
+ * @package intrace
  */
 class Upgrader {
 	/**
@@ -81,7 +81,7 @@ class Upgrader {
 			wp_send_json(
 				array(
 					'flag'    => false,
-					'message' => esc_html__( 'Front Page exist. If you want migrate index, please clear Front Page customization.', 'zeever' ),
+					'message' => esc_html__( 'Front Page exist. If you want migrate index, please clear Front Page customization.', 'intrace' ),
 				)
 			);
 			exit;
@@ -90,7 +90,7 @@ class Upgrader {
 		wp_insert_post(
 			array(
 				'post_name'    => 'front-page',
-				'post_title'   => esc_html__( 'Front Page', 'zeever' ),
+				'post_title'   => esc_html__( 'Front Page', 'intrace' ),
 				'post_type'    => 'wp_template',
 				'post_status'  => 'publish',
 				'post_content' => $index->content,
@@ -196,39 +196,39 @@ class Upgrader {
 		if ( $flag ) {
 			?>
 			<div class="notice notice-important theme-upgrade-notice index-upgrade">
-				<h2><?php esc_html_e( 'Important', 'zeever' ); ?> <?php echo esc_html( wp_get_theme()->name ); ?> <?php esc_html_e( 'Upgrade Notice!', 'zeever' ); ?></h2>
+				<h2><?php esc_html_e( 'Important', 'intrace' ); ?> <?php echo esc_html( wp_get_theme()->name ); ?> <?php esc_html_e( 'Upgrade Notice!', 'intrace' ); ?></h2>
 			<?php
 
 			if ( 'custom' === $front->source ) {
 				?>
-					<p><?php esc_html_e( 'We notice you are upgrading from old theme and also have updated your Front Page. If previously you have issue with data lost on your home page, please proceed with upgrading process below.', 'zeever' ); ?></p>
+					<p><?php esc_html_e( 'We notice you are upgrading from old theme and also have updated your Front Page. If previously you have issue with data lost on your home page, please proceed with upgrading process below.', 'intrace' ); ?></p>
 					<ol>
-						<li><a href='<?php echo esc_url( admin_url( 'site-editor.php' ) ); ?>' target="_blank"><?php esc_html_e( 'Please visit site editor page.', 'zeever' ); ?></a></li>
-						<li><?php esc_html_e( 'Before resetting, please make sure you back up your changes of Front Page template first.', 'zeever' ); ?></li>
-						<li><?php esc_html_e( 'If you sure you are having this issue, you can', 'zeever' ); ?>
-							<a target="_blank" href="https://img001.prntscr.com/file/img001/h0PskNncSi2E9OnDRA36nQ.png"><?php esc_html_e( 'reset the Front Page template.', 'zeever' ); ?></a>
-							<?php esc_html_e( 'But don\'t reset the Index template.', 'zeever' ); ?>
+						<li><a href='<?php echo esc_url( admin_url( 'site-editor.php' ) ); ?>' target="_blank"><?php esc_html_e( 'Please visit site editor page.', 'intrace' ); ?></a></li>
+						<li><?php esc_html_e( 'Before resetting, please make sure you back up your changes of Front Page template first.', 'intrace' ); ?></li>
+						<li><?php esc_html_e( 'If you sure you are having this issue, you can', 'intrace' ); ?>
+							<a target="_blank" href="https://img001.prntscr.com/file/img001/h0PskNncSi2E9OnDRA36nQ.png"><?php esc_html_e( 'reset the Front Page template.', 'intrace' ); ?></a>
+							<?php esc_html_e( 'But don\'t reset the Index template.', 'intrace' ); ?>
 						</li>
-						<li><?php esc_html_e( 'After resetting, please refresh this page.', 'zeever' ); ?></li>
+						<li><?php esc_html_e( 'After resetting, please refresh this page.', 'intrace' ); ?></li>
 					</ol>
 					<div class="themes-upgrade-action">
-						<a class='button-primary close-notification' href="#"><?php esc_html_e( 'I don\'t have the issue', 'zeever' ); ?></a>
+						<a class='button-primary close-notification' href="#"><?php esc_html_e( 'I don\'t have the issue', 'intrace' ); ?></a>
 					</div>
 				<?php
 			} else {
 				?>
-					<p><?php esc_html_e( 'We notice you are upgrading from old theme. If you have issue with data lost on your front page, please proceed with upgrading process below.', 'zeever' ); ?></p>
+					<p><?php esc_html_e( 'We notice you are upgrading from old theme. If you have issue with data lost on your front page, please proceed with upgrading process below.', 'intrace' ); ?></p>
 					<ol>
-						<li><a href='<?php echo esc_url( admin_url( 'site-editor.php' ) ); ?>' target="_blank"><?php esc_html_e( 'Please visit site editor page.', 'zeever' ); ?></a></li>
-						<li><?php esc_html_e( 'Check your front page (from top to bottom), if your front page looks different than before, please click "Fix Issue" button below.', 'zeever' ); ?></li>
-						<li><?php esc_html_e( 'This issue only happened for Front Page, any change you made elsewhere are still intact.', 'zeever' ); ?></li>					
-						<li><?php esc_html_e( 'This process will copy the content of your Index template to your Front Page template. You can always revert back to default front page by ', 'zeever' ); ?>
-							<a target="_blank" href="https://img001.prntscr.com/file/img001/h0PskNncSi2E9OnDRA36nQ.png"><?php esc_html_e( 'resetting the template.', 'zeever' ); ?></a>
+						<li><a href='<?php echo esc_url( admin_url( 'site-editor.php' ) ); ?>' target="_blank"><?php esc_html_e( 'Please visit site editor page.', 'intrace' ); ?></a></li>
+						<li><?php esc_html_e( 'Check your front page (from top to bottom), if your front page looks different than before, please click "Fix Issue" button below.', 'intrace' ); ?></li>
+						<li><?php esc_html_e( 'This issue only happened for Front Page, any change you made elsewhere are still intact.', 'intrace' ); ?></li>					
+						<li><?php esc_html_e( 'This process will copy the content of your Index template to your Front Page template. You can always revert back to default front page by ', 'intrace' ); ?>
+							<a target="_blank" href="https://img001.prntscr.com/file/img001/h0PskNncSi2E9OnDRA36nQ.png"><?php esc_html_e( 'resetting the template.', 'intrace' ); ?></a>
 						</li>
 					</ol>
 					<div class="themes-upgrade-action">
-						<a class='button-success upgrade-themes' href="#"><?php esc_html_e( 'Fix Issue', 'zeever' ); ?></a>
-						<a class='button-primary close-notification' href="#"><?php esc_html_e( 'I don\'t have the issue', 'zeever' ); ?></a>
+						<a class='button-success upgrade-themes' href="#"><?php esc_html_e( 'Fix Issue', 'intrace' ); ?></a>
+						<a class='button-primary close-notification' href="#"><?php esc_html_e( 'I don\'t have the issue', 'intrace' ); ?></a>
 					</div>
 				<?php
 			}
@@ -253,7 +253,7 @@ class Upgrader {
 									alert(response.message);
 								}
 
-								button.text('<?php esc_html_e( 'Fix Issue', 'zeever' ); ?>');
+								button.text('<?php esc_html_e( 'Fix Issue', 'intrace' ); ?>');
 							}
 						})
 					});
@@ -293,19 +293,19 @@ class Upgrader {
 							</svg>
 						</div>
 						<div class="notice-content">
-							<h2><?php echo sprintf( esc_html__( '%s Upgrade Notice!', 'zeever' ), wp_get_theme()->name ); ?></h2>
+							<h2><?php echo sprintf( esc_html__( '%s Upgrade Notice!', 'intrace' ), wp_get_theme()->name ); ?></h2>
 							<p>
-								<?php esc_html_e( 'There are some new exciting updates we want to announce. This update will required the latest version of Gutenverse plugin to work smoothly, so we recommend to update your Gutenverse plugin.', 'zeever' ); ?>
+								<?php esc_html_e( 'There are some new exciting updates we want to announce. This update will required the latest version of Gutenverse plugin to work smoothly, so we recommend to update your Gutenverse plugin.', 'intrace' ); ?>
 							</p>
 							<div class="themes-upgrade-action">
 								<?php
 								if ( 'plugins.php' !== $pagenow ) {
 									?>
-									<a class='button-primary upgrade-themes' href="<?php echo esc_url( admin_url( 'plugins.php' ) ); ?>"><?php esc_html_e( 'Go to plugin page', 'zeever' ); ?></a>
+									<a class='button-primary upgrade-themes' href="<?php echo esc_url( admin_url( 'plugins.php' ) ); ?>"><?php esc_html_e( 'Go to plugin page', 'intrace' ); ?></a>
 									<?php
 								}
 								?>
-								<a class='close-notification' href="#"><?php esc_html_e( 'Close notification', 'zeever' ); ?></a>
+								<a class='close-notification' href="#"><?php esc_html_e( 'Close notification', 'intrace' ); ?></a>
 							</div>
 						</div>
 					</div>
@@ -335,19 +335,19 @@ class Upgrader {
 							</svg>
 						</div>
 						<div class="notice-content">
-							<h2><?php echo sprintf( esc_html__( '%s Upgrade Notice!', 'zeever' ), wp_get_theme()->name ); ?></h2>
+							<h2><?php echo sprintf( esc_html__( '%s Upgrade Notice!', 'intrace' ), wp_get_theme()->name ); ?></h2>
 							<p>
-								<?php esc_html_e( 'We\'ve made some changes to page content layout and global style. Please check ', 'zeever' ); ?>
-								<a target="_blank" href="<?php echo esc_url( admin_url( 'edit.php?post_type=page' ) ); ?>"><?php esc_html_e( 'your pages', 'zeever' ); ?></a>
-								<?php esc_html_e( ' to see how the new layout looks on your site. You can always revert back by enable the inherit layout option on the ', 'zeever' ); ?>
-								<a href="<?php echo esc_url( admin_url( 'admin.php?page=gutenverse-settings' ) ); ?>"><?php esc_html_e( 'Gutenverse settings.', 'zeever' ); ?></a>
-								<?php esc_html_e( ' dashboard. Learn more about new layout on ', 'zeever' ); ?>
-								<a href="<?php echo esc_url( admin_url( 'admin.php?page=gutenverse-upgrade-notice&version=1.6.0' ) ); ?>"><?php esc_html_e( 'this page.', 'zeever' ); ?></a>
+								<?php esc_html_e( 'We\'ve made some changes to page content layout and global style. Please check ', 'intrace' ); ?>
+								<a target="_blank" href="<?php echo esc_url( admin_url( 'edit.php?post_type=page' ) ); ?>"><?php esc_html_e( 'your pages', 'intrace' ); ?></a>
+								<?php esc_html_e( ' to see how the new layout looks on your site. You can always revert back by enable the inherit layout option on the ', 'intrace' ); ?>
+								<a href="<?php echo esc_url( admin_url( 'admin.php?page=gutenverse-settings' ) ); ?>"><?php esc_html_e( 'Gutenverse settings.', 'intrace' ); ?></a>
+								<?php esc_html_e( ' dashboard. Learn more about new layout on ', 'intrace' ); ?>
+								<a href="<?php echo esc_url( admin_url( 'admin.php?page=gutenverse-upgrade-notice&version=1.6.0' ) ); ?>"><?php esc_html_e( 'this page.', 'intrace' ); ?></a>
 							</p>
 							<div class="themes-upgrade-action">
-								<a class='close-notification' href="#"><?php esc_html_e( 'Close notification', 'zeever' ); ?></a>
+								<a class='close-notification' href="#"><?php esc_html_e( 'Close notification', 'intrace' ); ?></a>
 								<a class="get-support" href='https://wordpress.org/support/plugin/gutenverse/' target="_blank">
-								<?php esc_html_e( 'Got Question?', 'zeever' ); ?>
+								<?php esc_html_e( 'Got Question?', 'intrace' ); ?>
 								</a>
 							</div>
 						</div>

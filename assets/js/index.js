@@ -1,10 +1,10 @@
 
 "use strict";
-var elements = document.getElementsByClassName('zeever-animate');
+var elements = document.getElementsByClassName('intrace-animate');
 
 function playAnimation(element) {
     if ( element.getBoundingClientRect().top > 0 && element.getBoundingClientRect().top <= (window.innerHeight * 0.75) ) {
-        element.classList.add('zeever-animate-init');
+        element.classList.add('intrace-animate-init');
     }
 }
 

@@ -3,11 +3,11 @@
  * Block Style Class
  *
  * @author Jegstudio
- * @package zeever
+ * @package intrace
  * @since 1.0.0
  */
 
-namespace Zeever;
+namespace Intrace;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Init Class
  *
- * @package zeever
+ * @package intrace
  */
 class Block_Styles {
 	/**
@@ -34,7 +34,7 @@ class Block_Styles {
 			'core/button',
 			array(
 				'name'  => 'custombuttonborder',
-				'label' => __( 'Button with Border', 'zeever' ),
+				'label' => __( 'Button with Border & Fill Hover', 'intrace' ),
 			)
 		);
 
@@ -42,15 +42,7 @@ class Block_Styles {
 			'core/button',
 			array(
 				'name'  => 'custombuttonborder2',
-				'label' => __( 'Button with Hover Border', 'zeever' ),
-			)
-		);
-
-		register_block_style(
-			'core/button',
-			array(
-				'name'  => 'custombuttonborder3',
-				'label' => __( 'Button with Border & HoverBorder', 'zeever' ),
+				'label' => __( 'Button with Fill & Border Hover', 'intrace' ),
 			)
 		);
 
@@ -58,7 +50,7 @@ class Block_Styles {
 			'core/heading',
 			array(
 				'name'  => 'lineseparator',
-				'label' => __( 'Line Separator', 'zeever' ),
+				'label' => __( 'Line Separator', 'intrace' ),
 			)
 		);
 
@@ -66,7 +58,7 @@ class Block_Styles {
 			'core/columns',
 			array(
 				'name'  => 'customboxshadow',
-				'label' => __( 'Box Shadow', 'zeever' ),
+				'label' => __( 'Box Shadow', 'intrace' ),
 			)
 		);
 
@@ -74,7 +66,7 @@ class Block_Styles {
 			'core/column',
 			array(
 				'name'  => 'customboxshadow',
-				'label' => __( 'Box Shadow', 'zeever' ),
+				'label' => __( 'Box Shadow', 'intrace' ),
 			)
 		);
 
@@ -82,7 +74,7 @@ class Block_Styles {
 			'core/group',
 			array(
 				'name'  => 'customboxshadow',
-				'label' => __( 'Box Shadow', 'zeever' ),
+				'label' => __( 'Box Shadow', 'intrace' ),
 			)
 		);
 
@@ -90,7 +82,7 @@ class Block_Styles {
 			'core/columns',
 			array(
 				'name'  => 'customboxshadowhover',
-				'label' => __( 'Box Shadow on Hover', 'zeever' ),
+				'label' => __( 'Box Shadow on Hover', 'intrace' ),
 			)
 		);
 
@@ -98,7 +90,7 @@ class Block_Styles {
 			'core/column',
 			array(
 				'name'  => 'customboxshadowhover',
-				'label' => __( 'Box Shadow on Hover', 'zeever' ),
+				'label' => __( 'Box Shadow on Hover', 'intrace' ),
 			)
 		);
 
@@ -106,7 +98,7 @@ class Block_Styles {
 			'core/group',
 			array(
 				'name'  => 'customboxshadowhover',
-				'label' => __( 'Box Shadow on Hover', 'zeever' ),
+				'label' => __( 'Box Shadow on Hover', 'intrace' ),
 			)
 		);
 
@@ -114,7 +106,7 @@ class Block_Styles {
 			'core/columns',
 			array(
 				'name'  => 'customborderhover',
-				'label' => __( 'Border Hover', 'zeever' ),
+				'label' => __( 'Border Hover', 'intrace' ),
 			)
 		);
 
@@ -122,7 +114,7 @@ class Block_Styles {
 			'core/column',
 			array(
 				'name'  => 'customborderhover',
-				'label' => __( 'Border Hover', 'zeever' ),
+				'label' => __( 'Border Hover', 'intrace' ),
 			)
 		);
 
@@ -130,7 +122,7 @@ class Block_Styles {
 			'core/group',
 			array(
 				'name'  => 'customborderhover',
-				'label' => __( 'Border Hover', 'zeever' ),
+				'label' => __( 'Border Hover', 'intrace' ),
 			)
 		);
 
@@ -138,7 +130,7 @@ class Block_Styles {
 			'core/columns',
 			array(
 				'name'  => 'customborderbottom',
-				'label' => __( 'Border Bottom', 'zeever' ),
+				'label' => __( 'Border Bottom', 'intrace' ),
 			)
 		);
 
@@ -146,7 +138,7 @@ class Block_Styles {
 			'core/column',
 			array(
 				'name'  => 'customborderbottom',
-				'label' => __( 'Border Bottom', 'zeever' ),
+				'label' => __( 'Border Bottom', 'intrace' ),
 			)
 		);
 
@@ -154,7 +146,7 @@ class Block_Styles {
 			'core/group',
 			array(
 				'name'  => 'customborderbottom',
-				'label' => __( 'Border Bottom', 'zeever' ),
+				'label' => __( 'Border Bottom', 'intrace' ),
 			)
 		);
 
@@ -162,7 +154,7 @@ class Block_Styles {
 			'core/columns',
 			array(
 				'name'  => 'customborderbottomhover',
-				'label' => __( 'Border Bottom Hover', 'zeever' ),
+				'label' => __( 'Border Bottom Hover', 'intrace' ),
 			)
 		);
 
@@ -170,7 +162,7 @@ class Block_Styles {
 			'core/column',
 			array(
 				'name'  => 'customborderbottomhover',
-				'label' => __( 'Border Bottom Hover', 'zeever' ),
+				'label' => __( 'Border Bottom Hover', 'intrace' ),
 			)
 		);
 
@@ -178,7 +170,7 @@ class Block_Styles {
 			'core/group',
 			array(
 				'name'  => 'customborderbottomhover',
-				'label' => __( 'Border Bottom Hover', 'zeever' ),
+				'label' => __( 'Border Bottom Hover', 'intrace' ),
 			)
 		);
 
@@ -186,15 +178,7 @@ class Block_Styles {
 			'core/social-links',
 			array(
 				'name'  => 'iconsborderhover',
-				'label' => __( 'Border Hover', 'zeever' ),
-			)
-		);
-
-		register_block_style(
-			'core/navigation',
-			array(
-				'name'  => 'customnav',
-				'label' => __( 'Navigation Padding', 'zeever' ),
+				'label' => __( 'Border Hover', 'intrace' ),
 			)
 		);
 	}

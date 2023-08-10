@@ -1,8 +1,8 @@
 <?php
 /**
- * Custom Helper For Zeever
+ * Custom Helper For Intrace
  *
- * @package zeever
+ * @package intrace
  */
 
 if ( ! function_exists( 'wp_body_open' ) ) {

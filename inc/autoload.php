@@ -3,14 +3,14 @@
  * Autoload function
  *
  * @author Jegstudio
- * @package zeever
+ * @package intrace
  * @since 1.0.0
  */
 
 spl_autoload_register(
 	function( $class ) {
-		$prefix   = 'Zeever';
-		$base_dir = ZEEVER_DIR . 'inc/class/';
+		$prefix   = 'Intrace';
+		$base_dir = INTRACE_DIR . 'inc/class/';
 		$len      = strlen( $prefix );
 
 		if ( strncmp( $prefix, $class, $len ) !== 0 ) {

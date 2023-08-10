@@ -3,24 +3,24 @@
  * Init Configuration
  *
  * @author Jegstudio
- * @package zeever
+ * @package intrace
  * @since 1.0.0
  */
 
-namespace Zeever;
+namespace Intrace;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use Zeever\Block_Patterns;
-use Zeever\Block_Styles;
-use Zeever\Upgrader;
+use Intrace\Block_Patterns;
+use Intrace\Block_Styles;
+use Intrace\Upgrader;
 
 /**
  * Init Class
  *
- * @package zeever
+ * @package intrace
  */
 class Init {
 
@@ -62,7 +62,7 @@ class Init {
 		add_action( 'after_theme_setup', array( $this, 'content_width' ), 0 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( 'admin_notices', array( $this, 'notice_install_plugin' ) );
-		add_action( 'wp_ajax_zeever_set_admin_notice_viewed', array( $this, 'notice_closed' ) );
+		add_action( 'wp_ajax_intrace_set_admin_notice_viewed', array( $this, 'notice_closed' ) );
 		add_action( 'admin_init', array( $this, 'load_editor_styles' ) );
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 		add_action( 'init', array( $this, 'register_block_patterns' ), 9 );
@@ -75,7 +75,6 @@ class Init {
 
 		add_filter( 'gutenverse_template_path', array( $this, 'template_path' ), null, 3 );
 		add_filter( 'gutenverse_themes_template', array( $this, 'add_template' ), 10, 2 );
-
 		// Default Font.
 		add_filter( 'gutenverse_block_config', array( $this, 'default_font' ), 10 );
 		add_filter( 'gutenverse_font_header', array( $this, 'default_header_font' ) );
@@ -158,22 +157,201 @@ class Init {
 	public function default_font_variable() {
 		return array(
 			array(
-				'id'   => 'h1-font',
-				'name' => 'H1 Font',
+				'id'   => 'h1-home-font',
+				'name' => 'H1 Home Font',
 				'font' => array(
 					'font'       => array(
-						'label' => 'Poppins',
-						'value' => 'Poppins',
+						'label' => 'Lato',
+						'value' => 'Lato',
 						'type'  => 'google',
 					),
 					'size'       => array(
 						'Desktop' => array(
 							'unit'  => 'px',
-							'point' => '76',
+							'point' => '72',
+						),
+						'Tablet'  => array(
+							'unit'  => 'px',
+							'point' => '56',
 						),
 						'Mobile'  => array(
 							'unit'  => 'px',
+							'point' => '29',
+						),
+					),
+					'lineHeight' => array(
+						'Desktop' => array(
+							'unit'  => 'em',
+							'point' => '1',
+						),
+					),
+					'spacing'    => array(
+						'Desktop' => '0.1',
+						'Mobile'  => '0.03',
+					),
+					'transform'  => 'uppercase',
+					'weight'     => '600',
+				),
+			),
+			array(
+				'id'   => 'h1-home-alt-font',
+				'name' => 'H1 Home Alt Font',
+				'font' => array(
+					'font'       => array(
+						'label' => 'Lato',
+						'value' => 'Lato',
+						'type'  => 'google',
+					),
+					'size'       => array(
+						'Desktop' => array(
+							'unit'  => 'px',
+							'point' => '56',
+						),
+						'Tablet'  => array(
+							'unit'  => 'px',
+							'point' => '48',
+						),
+						'Mobile'  => array(
+							'unit'  => 'px',
+							'point' => '28',
+						),
+					),
+					'lineHeight' => array(
+						'Desktop' => array(
+							'unit'  => 'em',
+							'point' => '1',
+						),
+					),
+					'spacing'    => array(
+						'Desktop' => '0.1',
+						'Mobile'  => '0.03',
+					),
+					'transform'  => 'uppercase',
+					'weight'     => '600',
+				),
+			),
+			array(
+				'id'   => 'h1-alt-font',
+				'name' => 'H1 Alt Font',
+				'font' => array(
+					'font'       => array(
+						'label' => 'Lato',
+						'value' => 'Lato',
+						'type'  => 'google',
+					),
+					'size'       => array(
+						'Desktop' => array(
+							'unit'  => 'px',
+							'point' => '42',
+						),
+						'Tablet'  => array(
+							'unit'  => 'px',
+							'point' => '40',
+						),
+						'Mobile'  => array(
+							'unit'  => 'px',
+							'point' => '28',
+						),
+					),
+					'lineHeight' => array(
+						'Desktop' => array(
+							'unit'  => 'em',
+							'point' => '1',
+						),
+					),
+					'spacing'    => array(
+						'Desktop' => '0.1',
+						'Mobile'  => '0.03',
+					),
+					'transform'  => 'uppercase',
+					'weight'     => '600',
+				),
+			),
+			array(
+				'id'   => 'h2-font',
+				'name' => 'H2 Font',
+				'font' => array(
+					'font'       => array(
+						'label' => 'Lato',
+						'value' => 'Lato',
+						'type'  => 'google',
+					),
+					'size'       => array(
+						'Desktop' => array(
+							'unit'  => 'px',
+							'point' => '42',
+						),
+						'Tablet'  => array(
+							'unit'  => 'px',
+							'point' => '34',
+						),
+						'Mobile'  => array(
+							'unit'  => 'px',
+							'point' => '24',
+						),
+					),
+					'lineHeight' => array(
+						'Desktop' => array(
+							'unit'  => 'em',
+							'point' => '1.3',
+						),
+					),
+					'spacing'    => array(
+						'Desktop' => '0.01',
+					),
+					'transform'  => 'uppercase',
+					'weight'     => '600',
+				),
+			),
+			array(
+				'id'   => 'h2-alt-font',
+				'name' => 'H2 Alt Font',
+				'font' => array(
+					'font'       => array(
+						'label' => 'Lato',
+						'value' => 'Lato',
+						'type'  => 'google',
+					),
+					'size'       => array(
+						'Desktop' => array(
+							'unit'  => 'px',
 							'point' => '32',
+						),
+						'Mobile'  => array(
+							'unit'  => 'px',
+							'point' => '24',
+						),
+					),
+					'lineHeight' => array(
+						'Desktop' => array(
+							'unit'  => 'em',
+							'point' => '1.3',
+						),
+					),
+					'spacing'    => array(
+						'Desktop' => '0.01',
+					),
+					'transform'  => 'uppercase',
+					'weight'     => '600',
+				),
+			),
+			array(
+				'id'   => 'h2-cta-font',
+				'name' => 'H2 CTA Font',
+				'font' => array(
+					'font'       => array(
+						'label' => 'Lato',
+						'value' => 'Lato',
+						'type'  => 'google',
+					),
+					'size'       => array(
+						'Desktop' => array(
+							'unit'  => 'px',
+							'point' => '32',
+						),
+						'Mobile'  => array(
+							'unit'  => 'px',
+							'point' => '24',
 						),
 					),
 					'lineHeight' => array(
@@ -186,97 +364,12 @@ class Init {
 				),
 			),
 			array(
-				'id'   => 'h2-font',
-				'name' => 'H2 Font',
-				'font' => array(
-					'font'       => array(
-						'label' => 'Poppins',
-						'value' => 'Poppins',
-						'type'  => 'google',
-					),
-					'size'       => array(
-						'Desktop' => array(
-							'unit'  => 'px',
-							'point' => '48',
-						),
-						'Mobile'  => array(
-							'unit'  => 'px',
-							'point' => '30',
-						),
-					),
-					'lineHeight' => array(
-						'Desktop' => array(
-							'unit'  => 'em',
-							'point' => '1.2',
-						),
-					),
-					'weight'     => '700',
-				),
-			),
-
-			array(
-				'id'   => 'h2-hero-font',
-				'name' => 'H2 Hero Font',
-				'font' => array(
-					'font'       => array(
-						'label' => 'Poppins',
-						'value' => 'Poppins',
-						'type'  => 'google',
-					),
-					'size'       => array(
-						'Desktop' => array(
-							'unit'  => 'px',
-							'point' => '56',
-						),
-						'Mobile'  => array(
-							'unit'  => 'px',
-							'point' => '32',
-						),
-					),
-					'lineHeight' => array(
-						'Desktop' => array(
-							'unit'  => 'em',
-							'point' => '1.2',
-						),
-					),
-					'weight'     => '700',
-				),
-			),
-			array(
-				'id'   => 'h2-small-font',
-				'name' => 'H2 Small Font',
-				'font' => array(
-					'font'       => array(
-						'label' => 'Poppins',
-						'value' => 'Poppins',
-						'type'  => 'google',
-					),
-					'size'       => array(
-						'Desktop' => array(
-							'unit'  => 'px',
-							'point' => '36',
-						),
-						'Mobile'  => array(
-							'unit'  => 'px',
-							'point' => '24',
-						),
-					),
-					'lineHeight' => array(
-						'Desktop' => array(
-							'unit'  => 'em',
-							'point' => '1.2',
-						),
-					),
-					'weight'     => '700',
-				),
-			),
-			array(
 				'id'   => 'h3-font',
 				'name' => 'H3 Font',
 				'font' => array(
 					'font'       => array(
-						'label' => 'Poppins',
-						'value' => 'Poppins',
+						'label' => 'Lato',
+						'value' => 'Lato',
 						'type'  => 'google',
 					),
 					'size'       => array(
@@ -284,37 +377,9 @@ class Init {
 							'unit'  => 'px',
 							'point' => '24',
 						),
-						'Tablet'  => array(
-							'unit'  => 'px',
-							'point' => '22',
-						),
-					),
-					'lineHeight' => array(
-						'Desktop' => array(
-							'unit'  => 'em',
-							'point' => '1.2',
-						),
-					),
-					'weight'     => '700',
-				),
-			),
-			array(
-				'id'   => 'h3-big-font',
-				'name' => 'H3 Big Font',
-				'font' => array(
-					'font'       => array(
-						'label' => 'Poppins',
-						'value' => 'Poppins',
-						'type'  => 'google',
-					),
-					'size'       => array(
-						'Desktop' => array(
-							'unit'  => 'px',
-							'point' => '28',
-						),
 						'Mobile'  => array(
 							'unit'  => 'px',
-							'point' => '22',
+							'point' => '18',
 						),
 					),
 					'lineHeight' => array(
@@ -323,7 +388,7 @@ class Init {
 							'point' => '1.2',
 						),
 					),
-					'weight'     => '700',
+					'weight'     => '600',
 				),
 			),
 			array(
@@ -331,36 +396,32 @@ class Init {
 				'name' => 'H4 Font',
 				'font' => array(
 					'font'       => array(
-						'label' => 'Poppins',
-						'value' => 'Poppins',
+						'label' => 'Lato',
+						'value' => 'Lato',
 						'type'  => 'google',
 					),
 					'size'       => array(
 						'Desktop' => array(
 							'unit'  => 'px',
-							'point' => '20',
-						),
-						'Mobile'  => array(
-							'unit'  => 'px',
-							'point' => '16',
+							'point' => '42',
 						),
 					),
 					'lineHeight' => array(
 						'Desktop' => array(
 							'unit'  => 'em',
-							'point' => '1.4',
+							'point' => '1.2',
 						),
 					),
-					'weight'     => '500',
+					'weight'     => '600',
 				),
 			),
 			array(
-				'id'   => 'h4-alt-font',
-				'name' => 'H4 Alt Font',
+				'id'   => 'h5-font',
+				'name' => 'H5 Font',
 				'font' => array(
 					'font'       => array(
-						'label' => 'Poppins',
-						'value' => 'Poppins',
+						'label' => 'Lato',
+						'value' => 'Lato',
 						'type'  => 'google',
 					),
 					'size'       => array(
@@ -376,42 +437,14 @@ class Init {
 					'lineHeight' => array(
 						'Desktop' => array(
 							'unit'  => 'em',
-							'point' => '1.7',
+							'point' => '1.2',
 						),
 					),
-					'weight'     => '600',
-				),
-			),
-			array(
-				'id'   => 'h5-font',
-				'name' => 'H5 / Accent Font',
-				'font' => array(
-					'font'       => array(
-						'label' => 'Poppins',
-						'value' => 'Poppins',
-						'type'  => 'google',
-					),
-					'size'       => array(
-						'Desktop' => array(
-							'unit'  => 'px',
-							'point' => '16',
-						),
-						'Mobile'  => array(
-							'unit'  => 'px',
-							'point' => '14',
-						),
-					),
-					'lineHeight' => array(
-						'Desktop' => array(
-							'unit'  => 'em',
-							'point' => '1.3',
-						),
+					'spacing'    => array(
+						'Desktop' => '0.1',
 					),
 					'transform'  => 'uppercase',
-					'spacing'    => array(
-						'Desktop' => '0.01',
-					),
-					'weight'     => '500',
+					'weight'     => '600',
 				),
 			),
 			array(
@@ -419,14 +452,14 @@ class Init {
 				'name' => 'H6 Font',
 				'font' => array(
 					'font'       => array(
-						'label' => 'Poppins',
-						'value' => 'Poppins',
+						'label' => 'Lato',
+						'value' => 'Lato',
 						'type'  => 'google',
 					),
 					'size'       => array(
 						'Desktop' => array(
 							'unit'  => 'px',
-							'point' => '16',
+							'point' => '18',
 						),
 					),
 					'lineHeight' => array(
@@ -435,12 +468,44 @@ class Init {
 							'point' => '1.2',
 						),
 					),
-					'weight'     => '500',
+					'weight'     => '400',
 				),
 			),
 			array(
-				'id'   => 'body-text-font',
-				'name' => 'Body Text Font',
+				'id'   => 'accent-font',
+				'name' => 'Accent Font',
+				'font' => array(
+					'font'       => array(
+						'label' => 'Lato',
+						'value' => 'Lato',
+						'type'  => 'google',
+					),
+					'size'       => array(
+						'Desktop' => array(
+							'unit'  => 'px',
+							'point' => '100',
+						),
+						'Tablet'  => array(
+							'unit'  => 'px',
+							'point' => '98',
+						),
+					),
+					'lineHeight' => array(
+						'Desktop' => array(
+							'unit'  => 'em',
+							'point' => '1.2',
+						),
+					),
+					'spacing'    => array(
+						'Desktop' => '0.01',
+					),
+					'transform'  => 'uppercase',
+					'weight'     => '600',
+				),
+			),
+			array(
+				'id'   => 'body-font',
+				'name' => 'Body Font',
 				'font' => array(
 					'font'       => array(
 						'label' => 'Heebo',
@@ -450,7 +515,90 @@ class Init {
 					'size'       => array(
 						'Desktop' => array(
 							'unit'  => 'px',
-							'point' => '15',
+							'point' => '16',
+						),
+						'Mobile'  => array(
+							'unit'  => 'px',
+							'point' => '14',
+						),
+					),
+					'lineHeight' => array(
+						'Desktop' => array(
+							'unit'  => 'em',
+							'point' => '1.6',
+						),
+					),
+					'weight'     => '300',
+				),
+			),
+			array(
+				'id'   => 'body-heading-font',
+				'name' => 'Body Heading Font',
+				'font' => array(
+					'font'       => array(
+						'label' => 'Heebo',
+						'value' => 'Heebo',
+						'type'  => 'google',
+					),
+					'size'       => array(
+						'Desktop' => array(
+							'unit'  => 'px',
+							'point' => '12',
+						),
+					),
+					'lineHeight' => array(
+						'Desktop' => array(
+							'unit'  => 'em',
+							'point' => '1.6',
+						),
+					),
+					'spacing'    => array(
+						'Desktop' => '0.05',
+					),
+					'weight'     => '300',
+				),
+			),
+			array(
+				'id'   => 'body-menu-font',
+				'name' => 'Body Menu Font',
+				'font' => array(
+					'font'       => array(
+						'label' => 'Lato',
+						'value' => 'Lato',
+						'type'  => 'google',
+					),
+					'size'       => array(
+						'Desktop' => array(
+							'unit'  => 'px',
+							'point' => '12',
+						),
+					),
+					'lineHeight' => array(
+						'Desktop' => array(
+							'unit'  => 'em',
+							'point' => '1.6',
+						),
+					),
+					'spacing'    => array(
+						'Desktop' => '0.2',
+					),
+					'transform'  => 'uppercase',
+					'weight'     => '400',
+				),
+			),
+			array(
+				'id'   => 'progress-bar-font',
+				'name' => 'Progress Bar Font',
+				'font' => array(
+					'font'       => array(
+						'label' => 'Heebo',
+						'value' => 'Heebo',
+						'type'  => 'google',
+					),
+					'size'       => array(
+						'Desktop' => array(
+							'unit'  => 'px',
+							'point' => '16',
 						),
 					),
 					'lineHeight' => array(
@@ -463,8 +611,8 @@ class Init {
 				),
 			),
 			array(
-				'id'   => 'body-text-2-font',
-				'name' => 'Body Text 2 Font',
+				'id'   => 'pricing-font',
+				'name' => 'Pricing Font',
 				'font' => array(
 					'font'       => array(
 						'label' => 'Heebo',
@@ -474,7 +622,11 @@ class Init {
 					'size'       => array(
 						'Desktop' => array(
 							'unit'  => 'px',
-							'point' => '14',
+							'point' => '48',
+						),
+						'Mobile'  => array(
+							'unit'  => 'px',
+							'point' => '40',
 						),
 					),
 					'lineHeight' => array(
@@ -483,12 +635,12 @@ class Init {
 							'point' => '1.7',
 						),
 					),
-					'weight'     => '400',
+					'weight'     => '800',
 				),
 			),
 			array(
-				'id'   => 'button-font',
-				'name' => 'Button Font',
+				'id'   => 'funfact-number-font',
+				'name' => 'Fun Fact Number Font',
 				'font' => array(
 					'font'       => array(
 						'label' => 'Heebo',
@@ -498,71 +650,7 @@ class Init {
 					'size'       => array(
 						'Desktop' => array(
 							'unit'  => 'px',
-							'point' => '15',
-						),
-						'Mobile'  => array(
-							'unit'  => 'px',
-							'point' => '12',
-						),
-					),
-					'lineHeight' => array(
-						'Desktop' => array(
-							'unit'  => 'em',
-							'point' => '1',
-						),
-					),
-					'transform'  => 'uppercase',
-					'spacing'    => array(
-						'Desktop' => '0.1',
-					),
-					'weight'     => '500',
-				),
-			),
-			array(
-				'id'   => 'button-two-font',
-				'name' => 'Button 2 Font',
-				'font' => array(
-					'font'       => array(
-						'label' => 'Heebo',
-						'value' => 'Heebo',
-						'type'  => 'google',
-					),
-					'size'       => array(
-						'Desktop' => array(
-							'unit'  => 'px',
-							'point' => '14',
-						),
-						'Mobile'  => array(
-							'unit'  => 'px',
-							'point' => '12',
-						),
-					),
-					'lineHeight' => array(
-						'Desktop' => array(
-							'unit'  => 'em',
-							'point' => '1',
-						),
-					),
-					'transform'  => 'uppercase',
-					'spacing'    => array(
-						'Desktop' => '0.1',
-					),
-					'weight'     => '500',
-				),
-			),
-			array(
-				'id'   => 'nav-font',
-				'name' => 'Nav Menu Font',
-				'font' => array(
-					'font'       => array(
-						'label' => 'Poppins',
-						'value' => 'Poppins',
-						'type'  => 'google',
-					),
-					'size'       => array(
-						'Desktop' => array(
-							'unit'  => 'px',
-							'point' => '12',
+							'point' => '32',
 						),
 					),
 					'lineHeight' => array(
@@ -571,11 +659,7 @@ class Init {
 							'point' => '1.7',
 						),
 					),
-					'transform'  => 'uppercase',
-					'spacing'    => array(
-						'Desktop' => '0.1',
-					),
-					'weight'     => '500',
+					'weight'     => '600',
 				),
 			),
 			array(
@@ -592,7 +676,7 @@ class Init {
 							'unit'  => 'px',
 							'point' => '16',
 						),
-						'Tablet'  => array(
+						'Mobile'  => array(
 							'unit'  => 'px',
 							'point' => '14',
 						),
@@ -604,68 +688,12 @@ class Init {
 						),
 					),
 					'style'      => 'italic',
-					'weight'     => '400',
+					'weight'     => '300',
 				),
 			),
 			array(
-				'id'   => 'readmore-font',
-				'name' => 'Readmore Font',
-				'font' => array(
-					'font'       => array(
-						'label' => 'Heebo',
-						'value' => 'Heebo',
-						'type'  => 'google',
-					),
-					'size'       => array(
-						'Desktop' => array(
-							'unit'  => 'px',
-							'point' => '12',
-						),
-					),
-					'lineHeight' => array(
-						'Desktop' => array(
-							'unit'  => 'em',
-							'point' => '1.5',
-						),
-					),
-					'transform'  => 'uppercase',
-					'weight'     => '500',
-					'spacing'    => array(
-						'Desktop' => '0.1',
-					),
-				),
-			),
-			array(
-				'id'   => '404-font',
-				'name' => '404 Font',
-				'font' => array(
-					'font'       => array(
-						'label' => 'Heebo',
-						'value' => 'Heebo',
-						'type'  => 'google',
-					),
-					'size'       => array(
-						'Desktop' => array(
-							'unit'  => 'px',
-							'point' => '156',
-						),
-						'Mobile'  => array(
-							'unit'  => 'px',
-							'point' => '56',
-						),
-					),
-					'lineHeight' => array(
-						'Desktop' => array(
-							'unit'  => 'em',
-							'point' => '1.2',
-						),
-					),
-					'weight'     => '700',
-				),
-			),
-			array(
-				'id'   => 'list-text-font',
-				'name' => 'List Text Font',
+				'id'   => 'button-hero-font',
+				'name' => 'Button Hero Font',
 				'font' => array(
 					'font'       => array(
 						'label' => 'Heebo',
@@ -677,7 +705,7 @@ class Init {
 							'unit'  => 'px',
 							'point' => '16',
 						),
-						'Mobile'  => array(
+						'Tablet'  => array(
 							'unit'  => 'px',
 							'point' => '14',
 						),
@@ -685,8 +713,40 @@ class Init {
 					'lineHeight' => array(
 						'Desktop' => array(
 							'unit'  => 'em',
-							'point' => '1.7',
+							'point' => '1',
 						),
+					),
+					'transform'  => 'uppercase',
+					'spacing'    => array(
+						'Desktop' => '0.1',
+					),
+					'weight'     => '400',
+				),
+			),
+			array(
+				'id'   => 'button-font',
+				'name' => 'Button  Font',
+				'font' => array(
+					'font'       => array(
+						'label' => 'Heebo',
+						'value' => 'Heebo',
+						'type'  => 'google',
+					),
+					'size'       => array(
+						'Desktop' => array(
+							'unit'  => 'px',
+							'point' => '14',
+						),
+					),
+					'lineHeight' => array(
+						'Desktop' => array(
+							'unit'  => 'em',
+							'point' => '1',
+						),
+					),
+					'transform'  => 'uppercase',
+					'spacing'    => array(
+						'Desktop' => '0.1',
 					),
 					'weight'     => '400',
 				),
@@ -708,8 +768,8 @@ class Init {
 		if ( 'wp_template' === $template_type ) {
 			$new_templates = array(
 				'about',
-				'blog',
 				'contact',
+				'project-detail',
 				'projects',
 				'service',
 			);
@@ -746,8 +806,6 @@ class Init {
 				return $directory . '/gutenverse-templates/templates/about.html';
 			case 'archive':
 				return $directory . '/gutenverse-templates/templates/archive.html';
-			case 'blog':
-				return $directory . '/gutenverse-templates/templates/blog.html';
 			case 'contact':
 				return $directory . '/gutenverse-templates/templates/contact.html';
 			case 'front-page':
@@ -756,6 +814,8 @@ class Init {
 				return $directory . '/gutenverse-templates/templates/index.html';
 			case 'page':
 				return $directory . '/gutenverse-templates/templates/page.html';
+			case 'project-detail':
+				return $directory . '/gutenverse-templates/templates/project-detail.html';
 			case 'projects':
 				return $directory . '/gutenverse-templates/templates/projects.html';
 			case 'search':
@@ -785,6 +845,13 @@ class Init {
 	 */
 	public function register_block_styles() {
 		new Block_Styles();
+	}
+
+	/**
+	 * Register Upgrader.
+	 */
+	public function register_upgrader() {
+		new Upgrader();
 	}
 
 	/**
@@ -818,13 +885,6 @@ class Init {
 	}
 
 	/**
-	 * Register Upgrader.
-	 */
-	public function register_upgrader() {
-		new Upgrader();
-	}
-
-	/**
 	 * Notice Closed
 	 */
 	public function notice_closed() {
@@ -855,8 +915,8 @@ class Init {
 			return;
 		}
 
-		$button_text = __( 'Check it Now!', 'zeever' );
-		$button_link = wp_nonce_url( self_admin_url( 'themes.php?page=zeever-dashboard' ), 'install-plugin_gutenverse' );
+		$button_text = __( 'Check it Now!', 'intrace' );
+		$button_link = wp_nonce_url( self_admin_url( 'themes.php?page=intrace-dashboard' ), 'install-plugin_gutenverse' );
 		?>
 		<style>
 			.install-gutenverse-plugin-notice {
@@ -865,7 +925,7 @@ class Init {
 				padding: 20px;
 				position: relative;
 				overflow: hidden;
-				background-image: url(<?php echo esc_url( ZEEVER_URI . '/assets/images/mockup-2x.png' ); ?>);
+				background-image: url(<?php echo esc_url( INTRACE_URI . '/assets/images/mockup-2x.png' ); ?>);
 				background-position: right top;
 				background-repeat: no-repeat;
 				border-left: 4px solid #3B57F7;
@@ -928,7 +988,7 @@ class Init {
 				event.preventDefault();
 
 				$.post( ajaxurl, {
-					action: 'zeever_set_admin_notice_viewed'
+					action: 'intrace_set_admin_notice_viewed'
 				} );
 			} );
 		} );
@@ -936,14 +996,14 @@ class Init {
 		<div class="notice is-dismissible install-gutenverse-plugin-notice">
 			<div class="gutenverse-notice-inner">
 				<div class="gutenverse-notice-content">
-					<h3><?php esc_html_e( 'Thank you for installing Zeever!', 'zeever' ); ?></h3>
-					<p><?php esc_html_e( 'Zeever theme work best with Gutenverse plugin. By installing Gutenverse plugin you may access Zeever templates built with Gutenverse and get access to more than 40 free blocks.', 'zeever' ); ?></p>
+					<h3><?php esc_html_e( 'Thank you for installing Intrace!', 'intrace' ); ?></h3>
+					<p><?php esc_html_e( 'Intrace theme work best with Gutenverse plugin. By installing Gutenverse plugin you may access Intrace templates built with Gutenverse and get access to more than 40 free blocks.', 'intrace' ); ?></p>
 					<div class="gutenverse-bottom">
 						<a class="gutenverse-button" href="<?php echo esc_url( $button_link ); ?>">
 							<?php echo esc_html( $button_text ); ?>
 						</a>
 						<a target="__blank" href="https://gutenverse.com/">
-							<?php esc_html_e( 'More Info', 'zeever' ); ?>
+							<?php esc_html_e( 'More Info', 'intrace' ); ?>
 							<span class="dashicons dashicons-arrow-right-alt"></span>
 						</a>
 					</div>
@@ -958,24 +1018,24 @@ class Init {
 	 */
 	public function admin_menu() {
 		add_theme_page(
-			'Zeever Template',
-			'Zeever Template',
+			'Intrace Template',
+			'Intrace Template',
 			'manage_options',
-			'zeever-dashboard',
-			array( $this, 'load_zeever_dashboard' ),
+			'intrace-dashboard',
+			array( $this, 'load_intrace_dashboard' ),
 			1
 		);
 	}
 
 	/**
-	 * Zeever Template page
+	 * Intrace Template page
 	 */
-	public function load_zeever_dashboard() {
+	public function load_intrace_dashboard() {
 		?>
 			<?php if ( defined( 'GUTENVERSE_VERSION' ) && version_compare( GUTENVERSE_VERSION, '1.1.1', '<=' ) ) { ?>
 			<div class="notice is-dismissible">
 				<span>
-				<?php echo esc_html_e( 'Please install newer version of Gutenverse plugin! (v1.1.2 and above)', 'zeever' ); ?>
+				<?php echo esc_html_e( 'Please install newer version of Gutenverse plugin! (v1.1.2 and above)', 'intrace' ); ?>
 				</span>
 			</div>
 			<?php } ?>
@@ -995,7 +1055,7 @@ class Init {
 	 * Theme setup.
 	 */
 	public function theme_setup() {
-		load_theme_textdomain( 'zeever', ZEEVER_DIR . '/languages' );
+		load_theme_textdomain( 'intrace', INTRACE_DIR . '/languages' );
 
 		add_theme_support( 'wp-block-styles' );
 		add_theme_support( 'automatic-feed-links' );
@@ -1005,7 +1065,7 @@ class Init {
 
 		register_nav_menus(
 			array(
-				'primary' => esc_html__( 'Primary', 'zeever' ),
+				'primary' => esc_html__( 'Primary', 'intrace' ),
 			)
 		);
 
@@ -1042,15 +1102,15 @@ class Init {
 	 * Enqueue scripts and styles.
 	 */
 	public function enqueue_scripts() {
-		wp_enqueue_style( 'zeever-style', get_stylesheet_uri(), array(), ZEEVER_VERSION );
-		wp_add_inline_style( 'zeever-style', $this->load_font_styles() );
+		wp_enqueue_style( 'intrace-style', get_stylesheet_uri(), array(), INTRACE_VERSION );
+		wp_add_inline_style( 'intrace-style', $this->load_font_styles() );
 
 		// enqueue additional core css.
-		wp_enqueue_style( 'zeever-core-add', ZEEVER_URI . '/assets/css/core-add.css', array(), ZEEVER_VERSION );
+		wp_enqueue_style( 'intrace-core-add', INTRACE_URI . '/assets/css/core-add.css', array(), INTRACE_VERSION );
 
 		// enqueue core animation.
-		wp_enqueue_script( 'zeever-animate', ZEEVER_URI . '/assets/js/index.js', array(), ZEEVER_VERSION, true );
-		wp_enqueue_style( 'zeever-animate', ZEEVER_URI . '/assets/css/animation.css', array(), ZEEVER_VERSION );
+		wp_enqueue_script( 'intrace-animate', INTRACE_URI . '/assets/js/index.js', array(), INTRACE_VERSION, true );
+		wp_enqueue_style( 'intrace-animate', INTRACE_URI . '/assets/css/animation.css', array(), INTRACE_VERSION );
 
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
@@ -1064,31 +1124,31 @@ class Init {
 		$screen = get_current_screen();
 
 		wp_enqueue_style(
-			'zeever-notice',
-			ZEEVER_URI . '/assets/css/notice.css',
+			'intrace-notice',
+			INTRACE_URI . '/assets/css/notice.css',
 			array(),
-			ZEEVER_URI
+			INTRACE_URI
 		);
 
-		if ( $screen->id === 'appearance_page_zeever-dashboard' ) {
+		if ( $screen->id === 'appearance_page_intrace-dashboard' ) {
 			// enqueue css.
 			wp_enqueue_style(
-				'zeever-dashboard',
-				ZEEVER_URI . '/assets/css/dashboard.css',
+				'intrace-dashboard',
+				INTRACE_URI . '/assets/css/dashboard.css',
 				array(),
-				ZEEVER_VERSION
+				INTRACE_VERSION
 			);
 
 			// enqueue js.
 			wp_enqueue_script(
-				'zeever-dashboard',
-				ZEEVER_URI . '/assets/js/dashboard.js',
+				'intrace-dashboard',
+				INTRACE_URI . '/assets/js/dashboard.js',
 				array( 'wp-api-fetch' ),
-				ZEEVER_VERSION,
+				INTRACE_VERSION,
 				true
 			);
 
-			wp_localize_script( 'zeever-dashboard', 'GutenverseThemeConfig', $this->theme_config() );
+			wp_localize_script( 'intrace-dashboard', 'GutenverseThemeConfig', $this->theme_config() );
 		}
 	}
 
@@ -1097,15 +1157,15 @@ class Init {
 	 */
 	public function theme_config() {
 		return array(
-			'demo'    => esc_url( 'https:/gutenverse.com/demo?name=zeever' ),
+			'demo'    => esc_url( 'https:/gutenverse.com/demo?name=intrace' ),
 			'pages'        => array(
-				'home'     => ZEEVER_URI . '/assets/img/page-home.webp',
-				'about'    => ZEEVER_URI . '/assets/img/page-about.webp',
-				'projects' => ZEEVER_URI . '/assets/img/page-projects.webp',
-				'contact'  => ZEEVER_URI . '/assets/img/page-contact.webp',
-				'blog'     => ZEEVER_URI . '/assets/img/page-blog.webp',
+				'home'     => INTRACE_URI . '/assets/img/page-home.webp',
+				'about'    => INTRACE_URI . '/assets/img/page-about.webp',
+				'services' => INTRACE_URI . '/assets/img/page-services.webp',
+				'contact'  => INTRACE_URI . '/assets/img/page-contact.webp',
+				'projects' => INTRACE_URI . '/assets/img/page-projects.webp',
 			),
-			'domain'  => 'zeever',
+			'domain'  => 'intrace',
 			'plugins' => array(
 				array(
 					'slug' => 'gutenverse',
@@ -1120,7 +1180,7 @@ class Init {
 	 */
 	public function load_font_styles() {
 		$font_families = array(
-			'Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600',
+			'Lato:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600',
 			'Heebo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600',
 		);
 
