@@ -46,6 +46,10 @@ img {
   height: auto;
 }
 
+.wp-block-navigation__submenu-container > .wp-block-navigation-item {
+  color: var(--wp--preset--color--black)!important;
+}
+
 .wp-site-blocks > * {
   margin-top: 0!important;
 }

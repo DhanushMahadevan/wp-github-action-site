@@ -6,39 +6,44 @@
 			"link": true,
 			"palette": [
 				{
-					"slug": "intrace-primary",
-					"color": "#181818",
+					"slug": "zeever-primary",
+					"color": "#FCFCFC",
 					"name": "Primary"
 				},
 				{
-					"slug": "intrace-accent",
-					"color": "#ad9271",
-					"name": "Accent"
+					"slug": "zeever-secondary",
+					"color": "#66FCF1",
+					"name": "Secondary"
 				},
 				{
-					"slug": "intrace-background",
-					"color": "#f8f8f8",
-					"name": "Background"
+					"slug": "zeever-third",
+					"color": "#121212",
+					"name": "Third"
 				},
 				{
-					"slug": "intrace-body-text",
-					"color": "#666666",
-					"name": "Body/Text"
+					"slug": "zeever-bodytext",
+					"color": "#D0D0D0",
+					"name": "Body Text"
 				},
 				{
-					"slug": "intrace-body-text-2",
-					"color": "#e1e1e1",
-					"name": "Body/Text 2"
+					"slug": "zeever-bgsoft",
+					"color": "#0B0C10",
+					"name": "Background Soft"
 				},
 				{
-					"slug": "intrace-border",
-					"color": "#e9ebef",
+					"slug": "zeever-border",
+					"color": "#363636",
 					"name": "Border"
 				},
 				{
-					"slug": "intrace-border-2",
-					"color": "#eaeaeb",
-					"name": "Border 2"
+					"slug": "zeever-button-border",
+					"color": "#4ABDB4",
+					"name": "Button Border"
+				},
+				{
+					"slug": "zeever-form",
+					"color": "#252525",
+					"name": "Form"
 				}
 			],
 			"gradients": [
@@ -54,8 +59,8 @@
 			"customFontSize": true,
 			"fontFamilies": [
 				{
-					"fontFamily": "'Lato'",
-					"name": "Lato",
+					"fontFamily": "'Poppins'",
+					"name": "Poppins",
 					"slug": "primary"
 				},
 				{
@@ -102,37 +107,32 @@
 				},
 				{
                     "slug": "heading-1",
-                    "size": "clamp(55px, 4.444vw, 72px )",
+                    "size": "clamp(42px, 5.2778vw, 76px )",
                     "name": "Heading 1"
-                },
-	        	{
-                    "slug": "heading-1-alt",
-                    "size": "clamp(45px, 3.888vw, 56px)",
-                    "name": "Heading 1 Alt" 
                 },
                 {
                     "slug": "heading-2",
-                    "size": "clamp(30px, 3.888vw, 32px)",
+                    "size": "clamp(28px, 3.334vw, 48px)",
                     "name": "Heading 2"
                 },
                 {
                     "slug": "heading-3",
-                    "size": "clamp(22px, 3.333vw, 24px)",
+                    "size": "clamp(22px, 1.667vw, 24px)",
                     "name": "Heading 3"
                 },
                 {
                     "slug": "heading-4",
-                    "size": "clamp(38px, 2.777vw, 40px)",
+                    "size": "clamp(20px, 1.528vw, 22px)",
                     "name": "Heading 4"
                 },
                 {
                     "slug": "heading-5",
-                    "size": "clamp(16px, 2.222vw, 18px)",
+                    "size": "clamp(18px, 1.389vw, 20px)",
                     "name": "Heading 5"
                 },
                 {
                     "slug": "heading-6",
-                    "size": "clamp(16px, 1.666vw, 16px)",
+                    "size": "clamp(14px, 1.112vw, 16px)",
                     "name": "Heading 6"
                 }
 			]
@@ -169,14 +169,14 @@
 	},
 	"styles": {
 		"color": {
-			"background": "#ffffff",
-			"text": "#666666"
+			"background": "#000001",
+			"text": "#D0D0D0"
 		},
 		"typography": {},
 		"elements": {
 			"link": {
 				"color": {
-					"text": "#ad9271"
+					"text": "#66FCF1"
 				}
 			},
 			"h1": {

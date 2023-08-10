@@ -1,10 +1,10 @@
 @charset "UTF-8";
 /*
-	Theme Name: Intrace
-	Description: Intrace is an elegant and simple designed theme template for WordPress fullsite editing and fully compatible with Gutenverse plugin. Intrace’s created especially for Interior Designer, Architecture, Real Estate and Furniture Designer websites. This template has a beautiful and unique design with a 100% responsive and easy to customize layout. The templates includes both core version and Gutenverse plugin version, also has core and Gutenverse block patterns ready so you can start mix and match your template parts as you desire. The templates is built ready so you don't need to build it from scratch. We want to make your experience using WordPress fullsite editor more convenient.
+	Theme Name: Zeever
+	Description: Zeever is a modern, responsive, and elegant dark style theme template for WordPress fullsite editing and fully compatible with Gutenverse plugin. Zeever’s created especially for Digital Agency, Creative Agency, Online Portfolio, Designer and Freelancer website for companies or individuals that need a beautiful landing page for their business. The templates includes both core version and Gutenverse plugin version, also has core and Gutenverse block patterns ready so you can start mix and match your template parts as you desire. The templates is built ready so you don't need to build it from scratch. We want to make your experience using WordPress fullsite editor more convenient.
 	Author: Jegstudio
 	Author URI: https://gutenverse.com
-  Theme URI: https://gutenverse.com/intrace-theme
+  Theme URI: https://gutenverse.com/zeever-theme
 	Version: 1.1.0
 	Stable tag: 1.1.0
 	Requires at least: 5.9
@@ -12,7 +12,7 @@
 	Requires PHP: 7.0
 	License: GNU General Public License v3 or later.
 	License URI: https://www.gnu.org/licenses/gpl-3.0.html
-	Text Domain: intrace
+	Text Domain: zeever
   Tags: one-column, custom-colors, custom-menu, custom-logo, editor-style, full-site-editing, translation-ready, block-patterns, featured-images
 */
 html {
@@ -78,7 +78,7 @@ h6 {
 
 p {
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 0.9rem;
 }
 
 /* Grouping content ========================================================================== */
@@ -96,7 +96,6 @@ pre {
 }
 
 /* Text-level semantics ========================================================================== */
-
 abbr[title] {
   border-bottom: none;
   text-decoration: underline;
@@ -168,22 +167,22 @@ figcaption {
   margin-top: 0!important;
 }
 
+.wp-block-post-comments input[type=submit] {
+  background-color: var(--wp--preset--color--zeever-secondary);
+  color: var(--wp--preset--color--black);
+  border-radius: 0px;
+}
+
 .logged-in.admin-bar .wp-block-navigation__responsive-container.is-menu-open.has-modal-open {
   margin-top: 32px;
+}
+
+.wp-block-navigation__submenu-container > li {
+  color: var(--wp--preset--color--black)!important;
 }
 
 @media (max-width: 782px) {
   .logged-in.admin-bar .wp-block-navigation__responsive-container.is-menu-open.has-modal-open {
     margin-top: 46px;
   }
-}
-
-.comment-form-comment {
-  margin-bottom: 0.9rem;
-}
-
-.wp-block-post-comments input[type=submit] {
-  background-color: var(--wp--preset--color--intrace-primary);
-  color: var(--wp--preset--color--white);
-  border-radius: 0px;
 }
