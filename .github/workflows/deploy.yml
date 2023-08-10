@@ -3,7 +3,7 @@ name: WordPress Deployment Workflow
 on:
   push:
     branches:
-      - main  # Change this to the appropriate branch name
+      - master  # Change this to the appropriate branch name
 
 jobs:
   deploy:
