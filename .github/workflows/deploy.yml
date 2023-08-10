@@ -10,11 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Transfer files to server
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.SERVER_HOST }}  # Add the server hostname or IP address as a secret
-          username: ${{ secrets.SERVER_USERNAME }}  # Add the server username as a secret
-          key: ${{ secrets.SERVER_SSH_KEY }}  # Add the SSH private key as a secret
-          source: "."  # Source directory to transfer
-          target: "/var/www/html/wordpress/wp-content/themes/zeever"  # Target directory on the server
+       - name: Deploy files using rsync
+         run: |
+          rsync -e "ssh -o StrictHostKeyChecking=no" -ravz --delete \
+            /path/to/files/ ubuntu@${{ secrets.SERVER_HOST }}:/var/www/html/wordpress/wp-content/themes/zeever/
