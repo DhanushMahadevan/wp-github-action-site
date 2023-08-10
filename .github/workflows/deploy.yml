@@ -1,21 +1,38 @@
-name: WordPress Deployment Workflow
+name: Deployment
 
 on:
   push:
-    branches:
-      - master  # Change this to the appropriate branch name
+    branches: [ master ]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
-      - name: Set up SSH
-        uses: webfactory/ssh-agent@v0.5.1
-        with:
-            ssh-private-key: ${{ secrets.SERVER_SSH_KEY }}
-      
-      - name: Deploy files using rsync
-        run: |
-          rsync -e "ssh -o StrictHostKeyChecking=no" -ravz --delete \
-            /path/to/files/ ubuntu@${{ secrets.SERVER_HOST }}:/var/www/html/wordpress/wp-content/themes/zeever/
+    - uses: actions/checkout@v2
+
+    - uses: actions/setup-node@v2
+      with:
+        node-version: 12.x
+
+    - name: Install dependencies
+      run: |
+        composer install -o
+        npm install
+
+    - name: Build
+      run: npm run build
+    
+    - name: Sync
+      env:
+        dest: 'ubuntu@34.220.189.164:/var/www/html/wp-content/themes/zeever'
+      run: |
+        echo "${{secrets.SERVER_SSH_KEY}}" > deploy_key
+        chmod 600 ./deploy_key
+        rsync -chav --delete \
+          -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
+          --exclude /deploy_key \
+          --exclude /.git/ \
+          --exclude /.github/ \
+          --exclude /node_modules/ \
+          ./ ${{env.dest}}
