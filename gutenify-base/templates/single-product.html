@@ -1,0 +1,32 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"0px","bottom":"0px","right":"0px","left":"0px"},"blockGap":"0","margin":{"top":"0","bottom":"0"}}},"layout":{"type":"default"}} -->
+<div
+  class="wp-block-group"
+  style="
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+  "
+>
+  <!-- wp:pattern {"slug":"gutenify-base/cover-with-post-title"} /-->
+
+  <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","right":"5vw","left":"5vw","bottom":"var:preset|spacing|80"}}},"layout":{"type":"constrained"}} -->
+  <div
+    class="wp-block-group alignfull"
+    style="
+      padding-top: var(--wp--preset--spacing--80);
+      padding-right: 5vw;
+      padding-bottom: var(--wp--preset--spacing--80);
+      padding-left: 5vw;
+    "
+  >
+  <!-- wp:woocommerce/legacy-template {"template":"single-product"} /-->
+  </div>
+  <!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

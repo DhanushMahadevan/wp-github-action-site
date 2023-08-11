@@ -1,0 +1,168 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"title": "Dark",
+	"version": 2,
+	"settings": {
+	  "appearanceTools": true,
+	  "color": {
+		"palette": [
+			{
+				"color": "#fff",
+				"name": "Foreground",
+				"slug": "foreground"
+			},
+			{
+				"color": "#031728",
+				"name": "Background",
+				"slug": "background"
+			},
+			{
+				"color": "#eda610",
+				"name": "Primary",
+				"slug": "primary"
+			},
+			{
+				"color": "#0bb85e",
+				"name": "Secondary",
+				"slug": "secondary"
+			},
+			{
+				"color": "#0da88c",
+				"name": "Primary Two",
+				"slug": "primary-two"
+			},
+			
+			{
+				"color": "#165153",
+				"name": "Secondary Two",
+				"slug": "secondary-two"
+			},
+			{
+				"color": "#fcd576",
+				"name": "Button Primary",
+				"slug": "button-primary"
+			},
+			{
+				"color": "#fff",
+				"name": "Button color Hover",
+				"slug": "button-color-hover"
+			},
+			{
+				"color": "#0bb85e",
+				"name": "Button Hover Bg",
+				"slug": "button-color-bg-hover"
+			},
+			{
+				"color": "#041c2d",
+				"name": "Secondary Background",
+				"slug": "background-secondary"
+			},
+			{
+				"color": "#031728",
+				"name": "Secondary dark Background",
+				"slug": "background-secondary-dark"
+			},
+			{
+				"color": "#041c2d",
+				"name": "Footer Column Background",
+				"slug": "footer-column-background"
+			},
+			{
+				"color": "#031728",
+				"name": "Footer Copy Right Background",
+				"slug": "footer-copy-right-background"
+			},
+			{
+				"color": "#f7f7f7",
+				"name": "Body Text",
+				"slug": "body-text"
+			},
+			{
+				"color": "#10172b",
+				"name": "Text Link",
+				"slug": "text-link"
+			},
+			{
+				"color": "#47b2ab",
+				"name": "Border",
+				"slug": "border"
+			},
+			{
+				"color": "#fff2ec",
+				"name": "Tertiary",
+				"slug": "tertiary"
+			},
+			{
+				"color": "#fafafa",
+				"name": "Input Field",
+				"slug": "input-field"
+			},
+			{
+				"color": "#777",
+				"name": "Boulder",
+				"slug": "boulder"
+			},
+			{
+				"color": "#7d6043",
+				"name": "coffee",
+				"slug": "coffee"
+			},
+			{
+				"color": "#25d6a2",
+				"name": "Cyan",
+				"slug": "cyan"
+			},
+			{
+				"color": "#1D1634",
+				"name": "Dark Blue",
+				"slug": "dark-blue"
+			},
+			{
+				"color": "#30b4da",
+				"name": "Sky Blue",
+				"slug": "sky-blue"
+			},
+			{
+				"color": "#0fb36c",
+				"name": "Dark Green",
+				"slug": "dark-green"
+			},
+			{
+				"color": "#6ba518",
+				"name": "Lite Green",
+				"slug": "lite-green"
+			},
+			{
+				"color": "#c74a73",
+				"name": "Purple",
+				"slug": "purple"
+			},
+			{
+				"color": "#9261c6",
+				"name": "Dark Purple",
+				"slug": "dark-purple"
+			},
+			{
+				"color": "#f78550",
+				"name": "Orange",
+				"slug": "orange"
+			},
+			{
+				"color": "#f9556d",
+				"name": "Lite Red",
+				"slug": "lite-red"
+			},
+			{
+				"color": "#27808c",
+				"name": "Hexadecimal",
+				"slug": "hexadecimal"
+			},
+			{
+				"color": "#ff6b98",
+				"name": "Pink",
+				"slug": "pink"
+			}
+		]
+	  }
+	}
+  }
