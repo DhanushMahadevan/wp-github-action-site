@@ -27,14 +27,15 @@ jobs:
           --exclude /node_modules/ \
           ./ ${{env.dest}}
           
-    - name: Change ownership
+   - name: Change ownership and permissions on remote server
       run: |
-        sudo chown -R www-data:www-data '/var/www/html/wordpress/'
-        
-    - name: Change permissions
-      run: |
-        sudo chmod -R 755 '/var/www/html/wordpress/'
+        ssh ${{secrets.SERVER_USERNAME}}@${{secrets.SERVER_HOST}} << 'ENDSSH'
+          # Change ownership
+          sudo chown -R www-data:www-data /var/www/html/wordpress
 
-    - name: Restart Nginx
-      run: |
-        sudo systemctl restart nginx
+          # Change permissions
+          sudo chmod -R 755 /var/www/html/wordpress
+
+          # Restart Nginx 
+          sudo systemctl restart nginx
+        ENDSSH
