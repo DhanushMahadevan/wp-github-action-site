@@ -28,12 +28,9 @@ jobs:
           ./ ${{env.dest}}
           
     - name: Set Permissions and Ownership
-  run: |
-    # Change permissions recursively for the deployed files
-    sudo chmod -R 755 ${{env.dest}}
-    
-    # Change ownership recursively for the deployed files
-    sudo chown -R ${{secrets.SERVER_WP}} ${{env.dest}}
+      run: |
+       sudo chmod -R 755 ${{env.dest}}
+       sudo chown -R ${{secrets.SERVER_WP}} ${{env.dest}}
 
     
     - name: Restart Nginx
