@@ -29,3 +29,13 @@ jobs:
     - name: Restart Nginx
       run: |
           sudo systemctl restart nginx
+
+    - name: Change ownership
+      run: |
+          sudo chown -R www-data:www-data /var/www/html/wordpress
+
+
+
+
+
+
