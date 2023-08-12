@@ -13,7 +13,7 @@ jobs:
     
     - name: Sync
       env:
-              dest: '${{secrets.SERVER_USERNAME}}@${{secrets.SERVER_HOST}}:/var/www/html/wordpress/wp-content/'
+              dest: '${{secrets.SERVER_USERNAME}}@${{secrets.SERVER_HOST}}:/var/www/html/wordpress/wp-content/themes/'
       run: |
         sudo echo "${{secrets.SERVER_SSH_KEY}}" > deploy_key
         sudo chmod 600 ./deploy_key
@@ -27,12 +27,6 @@ jobs:
           --exclude /script.sh/ \
           ./ ${{env.dest}}
           
-    - name: Set Permissions and Ownership
-      run: |
-       sudo chmod -R 755 ${{secrets.SERVER_WP}} ${{env.dest}}
-       sudo chown -R ${{secrets.SERVER_WP}} ${{env.dest}}
-
-    
     - name: Restart Nginx
       run: |
           sudo systemctl restart nginx
