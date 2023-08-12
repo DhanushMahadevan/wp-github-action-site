@@ -24,11 +24,17 @@ jobs:
           --exclude /.github/ \
           --exclude /README.md \
           --exclude /node_modules/ \
+          --exclude /script.sh/ \
           ./ ${{env.dest}}
           
     - name: Restart Nginx
       run: |
           sudo systemctl restart nginx
+
+    - name: Run Script
+      run: |
+          chmod +x script.sh  # Make script executable
+          ./script.sh # Run the script
 
    
 
