@@ -143,7 +143,9 @@ define( 'DB_PASSWORD', 'The password you set' );
 /** Database hostname */
 define( 'DB_HOST', 'localhost' );
 ```
-We set the required information for this in step 2. In our case the database is called “WordPress”, the username is simply “user” and the password we have simply set as “password”. When you have entered your data, you can save the document and close it again.
+We set the required information for this in step 2. In our case the database is called “WordPress”, the username is simply “user” and the password we have simply set as “password”.
+Hit this link: https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service for security enhancement to paste in the wp-config file.
+When you have entered your data, you can save the document and close it again.
 
 ## Step 7: Set NGINX 
 Now you need to configure NGINX for WordPress. To do this, create a new configuration file in the NGINX file folder:
