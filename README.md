@@ -1,7 +1,9 @@
 # Deploying a WordPress Site using LEMP (Linux, Nginx, MySQL, PHP) stack by GitHub Actions
  
  ## Description
- I'd happily guide you through the general steps to provision a Virtual Private Server (VPS) on a primary cloud provider like AWS, Azure, Google Cloud, or DigitalOcean to host a WordPress website. Please note that specific steps might vary depending on the cloud provider you choose.
+ I'd happily guide you through the general steps to provision a Virtual Private Server (VPS) on a primary cloud provider like AWS, Azure, Google Cloud, or DigitalOcean to host a WordPress website with continuous integration with Github Action. Please note that specific steps might vary depending on the cloud provider you choose.
+
+ Click Here to view Live project: https://dhanushcloudever.online
 
 ## Pre-Requisites
  * Once you have any of the above infrastructure you can start the installation. For this, you need four different software components:
