@@ -105,10 +105,6 @@ In order for PHP to work with the MySQL database, install the following extensio
 ```
 sudo apt-get install php-mysql -y
 ```
-In order for PHP to work with the MySQL database, install the following extension:
-```
-sudo apt-get install php-mysql -y
-```
 ## Step 5: Install WordPress
 
 Now you can install WordPress. This can also be done directly via the Ubuntu terminal. First, however, create a folder so that you can install the content management system afterward. It is recommended to name the folder with the domain name. This way it makes it easier to keep several websites apart later on. So create the appropriate folder and then change it to this one:
