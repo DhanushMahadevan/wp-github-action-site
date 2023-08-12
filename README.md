@@ -236,15 +236,14 @@ The workflow consists of the following steps:
 
 1. Checkout Repository: This step checks out the code from the repository, allowing subsequent steps to work with the codebase.
 
-2. Setup Node.js: The workflow sets up Node.js version 12.x on the runner machine, which is required for executing the deployment script.
 
-3. Sync to Remote Server: The main step of the workflow, this section performs the synchronization of the local code to a remote server. It uses the rsync command to ensure that the remote server's files match those in the local repository. This step uses SSH key-based authentication for secure communication with the remote server.
+2. Sync to Remote Server: The main step of the workflow, this section performs the synchronization of the local code to a remote server. It uses the rsync command to ensure that the remote server's files match those in the local repository. This step uses SSH key-based authentication for secure communication with the remote server.
    The synchronization process excludes certain files and directories:
-
+3. Restart the nginx server.
+   
 * /deploy_key: The SSH key used for authentication is excluded from the synchronization.
 * /.git/: The local Git repository directory is excluded to avoid copying unnecessary version control files.
 * /.github/: The GitHub Actions workflow files are excluded from the synchronization.
-* /node_modules/: Node.js modules are excluded, assuming that dependencies are managed on the server.
 * /README.md/: README.md file is excluded to avoid copying to the remote server.
 
   # Configuration
