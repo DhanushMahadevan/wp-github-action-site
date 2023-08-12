@@ -29,11 +29,11 @@ jobs:
           
     - name: Change ownership
       run: |
-        sudo chown -R www-data:www-data /var/www/html/wordpress
+        sudo chown -R www-data:www-data /var/www/html/wordpress/
         
     - name: Change permissions
       run: |
-        sudo chmod -R 755 /var/www/html/wordpress
+        sudo chmod -R 755 /var/www/html/wordpress/
 
     - name: Restart Nginx
       run: |
