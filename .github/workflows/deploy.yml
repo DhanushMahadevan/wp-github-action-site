@@ -26,6 +26,11 @@ jobs:
           --exclude /node_modules/ \
           ./ ${{env.dest}}
           
+     - name: Add remote host to known_hosts
+      run: |
+        mkdir -p ~/.ssh
+        ssh-keyscan ${{secrets.SERVER_HOST}} >> ~/.ssh/known_hosts
+    
     - name: Change ownership and permissions on remote server
       run: |
         ssh ${{secrets.SERVER_USERNAME}}@${{secrets.SERVER_HOST}} << 'ENDSSH'
